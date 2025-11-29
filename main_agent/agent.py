@@ -4,20 +4,7 @@
 Created on Sun Nov 16 14:21:28 2025
 @author: inna campo
 """ 
-from google.adk.agents import Agent, LlmAgent, SequentialAgent, ParallelAgent, LoopAgent
-from google.adk.models.google_llm import Gemini
-from google.adk.runners import InMemoryRunner
-from google.adk.tools import AgentTool, FunctionTool, google_search
-from google.genai import types
-from google.adk.sessions import InMemorySessionService
-from google.adk.runners import Runner
-
-retry_config=types.HttpRetryOptions(
-    attempts=5,  # Maximum retry attempts
-    exp_base=7,  # Delay multiplier
-    initial_delay=1,
-    http_status_codes=[429, 500, 503, 504], # Retry on these HTTP errors
-)
+from google.adk.agents import  LlmAgent, SequentialAgent, ParallelAgent
 
 def get_bias_implications(bias_type: str) -> str:
     """
@@ -169,6 +156,18 @@ CONTEXT & MEMORY RULES
 1. PRESERVE: Keep valid biases from previous turns.
 2. CORRECTION: If the user says "The doctor didn't say that," REMOVE the bias.
 3. ADD: Only add new biases if they pass the rules above.
+
+---------------------------------------------------------
+TOOL USAGE RULES
+---------------------------------------------------------
+When you need to get the clinical implication for a bias, you MUST call the `get_bias_implications` tool.
+Your tool call must be a direct function call, without any other Python code like 'print()'.
+
+VALID Example:
+get_bias_implications(bias_type="ageism_bias")
+
+INVALID Example:
+print(get_bias_implications(bias_type="ageism_bias"))
 
 ---------------------------------------------------------
 EXAMPLES

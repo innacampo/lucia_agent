@@ -86,6 +86,25 @@ The most significant challenge for me was managing the intricate dependency betw
 
 # 6. **Cloud Deployment (Vertex AI Agent Engine)**
 
+The LUCIA agent has been successfully deployed to Google Cloud's Vertex AI Agent Engine. It is operational as a secure, serverless API.
+
+* **Platform:** `Vertex AI Agent Engine`
+* **Region:** `us-central1`
+* **Endpoint Resource Name:** `available upon request`
+  *This endpoint is secured via Google Cloud IAM. Access is granted programmatically via authenticated requests, as demonstrated in the deployment notebook. https://www.kaggle.com/code/innacampo/lucia-agent-deployment*
+
+### **Deployment Artifacts**
+
+`lucia_deploy/`
+`├── agent.py                  # The logic`
+`├── requirements.txt          # The libraries`
+`├── .env                      # The secrets/config`
+`└── .agent_engine_config.json # The hardware specs`
+
+### **Deploy Command**
+
+`adk deploy agent_engine --project=$PROJECT_ID --region=$deployed_region lucia_deploy --agent_engine_config_file=lucia_deploy/.agent_engine_config.json`
+
 # 7. Future Vision
 This capstone demonstrates LUCIA's immediate utility, but its long-term value lies in longitudinal observation.
 For Researchers: Future iterations will allow women to donate anonymized data to AXIOM, creating the "Big Data" needed to update guidelines. This feature is deferred in this prototype to prioritize strict PHI/HIPAA governance.
