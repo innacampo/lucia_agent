@@ -36,23 +36,23 @@ LUCIA utilizes a **Multi-Agent Orchestration** built on the Google Agent Develop
 ![Workflow](./images/workflow.png "LUCIA workflow")
 
 1. **Ingest & Map (The Digital Scribe)** 
-   * **Agent:** `symptom\_mapper` 
+   * **Agent:** `symptom_mapper` 
    * **Action:** Ingests user narrative and translates emotional history into a structured Review of Systems (ROS). It updates the symptomMapping state (e.g., "brain fog" $\\to$ Neurological Cluster). 
 2. **Audit (Clinical Decision Support)** 
-   * **Agent:** `bias\_analyzer` 
+   * **Agent:** `bias_analyzer` 
    * **Tool:** AXIOM Knowledge Base (via `get\_bias\_implications`) 
    * **Action:** Audits the narrative for cognitive traps like premature closure. It asynchronously updates biasAwareness, framing potential biases as diagnostic pivot points. 
 3. **Advocacy (The Patient Prep Engine)** 
-   * **Agent:** `advocacy\_generator` 
+   * **Agent:** `advocacy_generator` 
    * **Action:** Transforms anxiety into a structured agenda. Generates structuredAdvocacy questions (e.g., "Given symptoms X and Y, should we check thyroid function?") to focus the conversation. 
 4. **Structure (The Clinical Handoff)** 
-   * **Agent:** `report\_formatter` 
+   * **Agent:** `report_formatter` 
    * **Action:** Compiles the final output into a professional Consultation Brief (Subjective $\\to$ Assessment $\\to$ Plan).
 
 ## **2\. Project Structure**
 
-lucia\_agent/ 
-├── images/                   \# Project assets (logos, diagrams) 
+lucia\_agent/  
+├── images/                   \# Project assets (logos, diagrams)   
 ├── lucia\_deploy/             \# Deployment artifacts for Vertex AI Agent Engine 
 │   ├── .agent\_engine\_config.json 
 │   ├── agent.py              \# Deployment-specific agent logic 
