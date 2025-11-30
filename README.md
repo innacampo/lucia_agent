@@ -29,7 +29,7 @@ LUCIA utilizes a **Multi-Agent Orchestration** built on the Google Agent Develop
 
 * **Specialization:** Distinct roles (Symptom Mapper vs. Bias Analyzer) ensure rigorous separation between the patient's own thoughts and existing clinical assumptions. 
 * **Statefulness:** A dynamic "Session State" evolves in real-time, updating symptoms and detected biases as the narrative unfolds. 
-* **Verifiable Tool Use:** Agents trigger tools (e.g., get\_bias\_implications) to ground insights in peer-reviewed literature rather than relying solely on LLM training data.
+* **Verifiable Tool Use:** Agents trigger tools (e.g., `get_bias_implications`) to ground insights in peer-reviewed literature rather than relying solely on LLM training data.
 
 ### **The 4-Stage Pipeline**
 
@@ -40,7 +40,7 @@ LUCIA utilizes a **Multi-Agent Orchestration** built on the Google Agent Develop
    * **Action:** Ingests user narrative and translates emotional history into a structured Review of Systems (ROS). It updates the symptomMapping state (e.g., "brain fog" $\\to$ Neurological Cluster). 
 2. **Audit (Clinical Decision Support)** 
    * **Agent:** `bias_analyzer` 
-   * **Tool:** AXIOM Knowledge Base (via `get\_bias\_implications`) 
+   * **Tool:** AXIOM Knowledge Base (via `get_bias_implications`) 
    * **Action:** Audits the narrative for cognitive traps like premature closure. It asynchronously updates biasAwareness, framing potential biases as diagnostic pivot points. 
 3. **Advocacy (The Patient Prep Engine)** 
    * **Agent:** `advocacy_generator` 
