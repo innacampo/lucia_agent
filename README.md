@@ -53,21 +53,21 @@ LUCIA utilizes a **Multi-Agent Orchestration** built on the Google Agent Develop
 
 lucia\_agent/  
 ├── images/                   \# Project assets (logos, diagrams)   
-├── lucia\_deploy/             \# Deployment artifacts for Vertex AI Agent Engine 
-│   ├── .agent\_engine\_config.json 
-│   ├── agent.py              \# Deployment-specific agent logic 
-│   ├── requirements.txt 
-│   └── .env 
-├── main\_agent/               \# Core application logic 
-│   ├── \_\_init\_\_.py 
-│   └── agent.py              \# Root Agent, Sub-agents, and Orchestration logic 
-├── tests/                    \# Integration and Unit tests 
-│   ├── README.md 
-│   └── test\_agent.py         \# Main integration runner script 
-├── .env                      \# Environment variables (Excluded from Git) 
-├── requirements.txt          \# Python dependencies 
-├── README.md                 \# Project documentation 
-└── LICENSE
+├── lucia\_deploy/             \# Deployment artifacts for Vertex AI Agent Engine  
+│   ├── .agent\_engine\_config.json   
+│   ├── agent.py              \# Deployment-specific agent logic   
+│   ├── requirements.txt   
+│   └── .env   
+├── main\_agent/               \# Core application logic   
+│   ├── \_\_init\_\_.py   
+│   └── agent.py              \# Root Agent, Sub-agents, and Orchestration logic   
+├── tests/                    \# Integration and Unit tests   
+│   ├── README.md   
+│   └── test\_agent.py         \# Main integration runner script   
+├── .env                      \# Environment variables (Excluded from Git)   
+├── requirements.txt          \# Python dependencies   
+├── README.md                 \# Project documentation   
+└── LICENSE  
 
 ## **3\. Installation & Setup**
 
@@ -115,10 +115,10 @@ To run the integration test:
 
 In this scenario, a 48-year-old user shares a frustrating interaction regarding autoimmune-like symptoms.
 
-##Step 1: The Narrative (Input)  
+## Step 1: The Narrative (Input)  
 *User:* "I've been waking up with stiff, swollen joints in my hands and feet for three months. The fatigue is so bad I have to nap in my car at lunch. I saw a new doctor today. I tried to show him the swelling, but he barely looked. He told me that at 48, this is just classic perimenopause and 'empty nest syndrome' making me depressed. He didn't order any blood work. He just told me to lose 10 pounds and try meditation to calm my 'nerves' because women get so anxious at this stage of life."
 
-##Step 2: The Logic (Internal Monologue & Tool Usage)   
+## Step 2: The Logic (Internal Monologue & Tool Usage)   
 Agent 1 (`Symptom Mapper`): Extracts Symptoms and assigns them to clusters:
 stiff joints in my hands and feet $\\to$ pain cluster
 fatigue $\\to$ fatigue cluster
@@ -130,7 +130,7 @@ Tool Call: `get_bias_implications(bias_type="gender_bias")`
 Output: "Often results in women's pain being taken less seriously or misdiagnosed, particularly in cardiovascular and autoimmune diseases."
 Agent 3 (`Advocacy generator`): Generates advocacy questions for the patient
 
-##Step 3: The Output (Advocacy Report)  
+## Step 3: The Output (Advocacy Report)  
 LUCIA generates the following document for the patient:
 **Patient Advocacy & Consultation Aid**
 
