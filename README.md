@@ -163,7 +163,7 @@ The LUCIA agent has been deployed to Google Cloud's Vertex AI Agent Engine as a 
 
 ### **Deploy Command**
 
-To deploy the contents of the lucia\_deploy/ directory:
+To deploy the contents of the `lucia_deploy` directory:
 ```bash
 adk deploy agent_engine --project=$PROJECT_ID --region=$deployed_region lucia_deploy --agent_engine_config_file=lucia_deploy/.agent_engine_config.json
 ```
