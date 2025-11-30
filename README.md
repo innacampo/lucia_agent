@@ -80,7 +80,7 @@ lucia\_agent/
 ### **Step 1: Clone and Environment**
 ```bash
 git clone https://github.com/innacampo/lucia_agent.git
-cd lucia agent 
+cd lucia_agent 
 
 # Create a virtual environment 
 python3 -m venv venv 
