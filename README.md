@@ -80,10 +80,10 @@ lucia\_agent/
 ### **Step 1: Clone and Environment**
 
 git clone \[https://github.com/innacampo/LUCIA.git\](https://github.com/innacampo/LUCIA.git) 
-cd LUCIA
+cd LUCIA 
 
 \# Create a virtual environment 
-python3 \-m venv venv
+python3 \-m venv venv 
 
 \# Activate the virtual environment 
 \# On macOS/Linux: 
@@ -176,6 +176,7 @@ adk deploy agent\_engine \\
 
 This capstone demonstrates LUCIA's immediate utility, but its long-term value lies in longitudinal observation.
 
-* **For Researchers:** Future iterations will allow women to donate anonymized data to AXIOM, creating the "Big Data" needed to update guidelines.  
+* **For Researchers:** Future iterations will allow women to donate anonymized data to AXIOM, creating the "Big Data" needed to update guidelines.
 * **For Clinicians:** Provides a "longitudinal view" of a patient's journey, revealing cyclical patterns invisible in snapshot appointments.
+
 ![Bridge](./images/bridge.png "LUCIA bridge") 
