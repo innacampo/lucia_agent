@@ -37,7 +37,7 @@ LUCIA utilizes a **Multi-Agent Orchestration** built on the Google Agent Develop
 
 1. **Ingest & Map (The Digital Scribe)** 
    * **Agent:** symptom\_mapper 
-   * **Action:** Ingests user narrative and translates emotional history into a structured Review of Systems (ROS). It updates the symptomMapping state (e.g., "brain fog" $\\to$ Neurological Cluster). 
+   * **Action:** Ingests user narrative and translates emotional history into a structured Review of Systems (ROS). It updates the symptomMapping state (e.g., "brain fog" -> Neurological Cluster). 
 2. **Audit (Clinical Decision Support)** 
    * **Agent:** bias\_analyzer 
    * **Tool:** AXIOM Knowledge Base (via get\_bias\_implications) 
@@ -47,26 +47,42 @@ LUCIA utilizes a **Multi-Agent Orchestration** built on the Google Agent Develop
    * **Action:** Transforms anxiety into a structured agenda. Generates structuredAdvocacy questions (e.g., "Given symptoms X and Y, should we check thyroid function?") to focus the conversation. 
 4. **Structure (The Clinical Handoff)** 
    * **Agent:** report\_formatter 
-   * **Action:** Compiles the final output into a professional Consultation Brief (Subjective $\\to$ Assessment $\\to$ Plan).
+   * **Action:** Compiles the final output into a professional Consultation Brief (Subjective -> Assessment -> Plan).
 
 ## **2\. Project Structure**
 
 lucia\_agent/ 
+
 ├── images/                   \# Project assets (logos, diagrams) 
+
 ├── lucia\_deploy/             \# Deployment artifacts for Vertex AI Agent Engine 
+
 │   ├── .agent\_engine\_config.json 
+
 │   ├── agent.py              \# Deployment-specific agent logic 
+
 │   ├── requirements.txt 
+
 │   └── .env 
+
 ├── main\_agent/               \# Core application logic 
+
 │   ├── \_\_init\_\_.py 
+
 │   └── agent.py              \# Root Agent, Sub-agents, and Orchestration logic 
+
 ├── tests/                    \# Integration and Unit tests 
+
 │   ├── README.md 
+
 │   └── test\_agent.py         \# Main integration runner script 
+
 ├── .env                      \# Environment variables (Excluded from Git) 
+
 ├── requirements.txt          \# Python dependencies 
+
 ├── README.md                 \# Project documentation 
+
 └── LICENSE
 
 ## **3\. Installation & Setup**
