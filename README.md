@@ -1,3 +1,4 @@
+![Logo](./images/logo.png "LUCIA logo")
 # 1. LUCIA: A Collaborative Clinical Instrument
 LUCIA is an AI-powered scientific instrument that analyzes medical research to surface and mitigate diagnostic bias in women's health.LUCIA (Language Understanding for Clinical Insight & Analysis) is a dual-agent platform designed as a bridge, not a wedge.
 - For the Clinician (Efficiency & Safety): It acts as an intelligent "pre-screener," synthesizing complex narratives into structured clinical data before the patient even enters the room. It reduces cognitive load and serves as a safety net against burnout-induced errors.
@@ -11,7 +12,8 @@ LUCIA utilizes a Multi-Agent Architecture to solve this:
 - **Statefulness:** Our agents maintain a dynamic "Session State" - a persistent memory object that evolves in real-time. It continuously updates the symptoms and detected biases based on patient input, ensuring the agent's reasoning adapts as the narrative unfolds.
 - **Verifiable Tool Use:**  Agents can trigger specific tools (like the "AXIOM Knowledge Base") to ground their insights in peer-reviewed literature, rather than relying on the black-box training data of an LLM.
 
-#3. Architecture & Workflow ("The Dual-Stream Engine")  
+#3. Architecture & Workflow ("The Dual-Stream Engine") 
+![Workflow](./images/workflow.png "LUCIA workflow") 
 LUCIA is a Multi-Agent Orchestration built on the Google Agent Development Kit (ADK). The system processes the patient's subjective narrative through four distinct stages to create a structured clinical asset.
 1. Ingest & Map: The Digital Scribe
 Agent 1  `symptom_mapper`: Acting as a scribe for overloaded clinicians, this agent ingests the user's narrative and translates emotional history into a structured Review of Systems (ROS).
@@ -110,3 +112,4 @@ This capstone demonstrates LUCIA's immediate utility, but its long-term value li
 For Researchers: Future iterations will allow women to donate anonymized data to AXIOM, creating the "Big Data" needed to update guidelines. This feature is deferred in this prototype to prioritize strict PHI/HIPAA governance.
 For Clinicians: It provides a "longitudinal view" of a patient's journey, revealing cyclical patterns invisible in snapshot appointments.
 LUCIA is more than code, it is a proof of concept for a healthcare system that listens.
+![Bridge](./images/bridge.png "LUCIA bridge") 
