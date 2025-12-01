@@ -43,7 +43,7 @@ from main_agent.agent import root_agent
 from google.genai import types as genai_types
 import warnings
 warnings.filterwarnings("ignore")
-
+APP_NAME = "LUCIA"  # Application
 
 async def main():
     session_id = str(uuid.uuid4())
@@ -63,8 +63,8 @@ async def main():
         "He didn't order any blood work. He just told me to lose 10 pounds and try meditation to calm my 'nerves' because women get so anxious at this stage of life."   
         ]
 
-    for query in queries:
-        print(f">>> {query}")
+    for index, query in enumerate(queries):
+        print(f"\nUser, query #{index} > {query}")
         
         # 1. Create a variable to hold the final report
         final_report = None
@@ -79,13 +79,13 @@ async def main():
             ),
         ):
             if event.is_final_response() and event.content and event.content.parts:
-                print(event.content.parts[0].text)
+                print(f"{APP_NAME}, query #{index} > ", event.content.parts[0].text)
                 final_report = event.content.parts[0].text
 
         # 3. Print the stored report only once, after the agent is done
-        if final_report:
-            print("\n\nFinal Report\n\n")
-            print(final_report)
+    if final_report:
+        print("\n\n Final Report \n\n")
+        print(f"{APP_NAME} > ", final_report)
             
 if __name__ == "__main__":
     asyncio.run(main())
