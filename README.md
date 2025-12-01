@@ -1,16 +1,26 @@
 ![Logo](./images/logo.png "LUCIA logo")
+# LUCIA: Bias-Aware AI Agent
 
-# **LUCIA: Language Understanding for Clinical Insight & Analysis**
+![Status](https://img.shields.io/badge/Status-Prototype-blue)
+![Python](https://img.shields.io/badge/Python-3.10%2B-green)
+![Tech](https://img.shields.io/badge/Built%20With-Google%20ADK%20%7C%20Gemini%202.5-orange)
+![License](https://img.shields.io/badge/License-Apache%202.0-lightgrey)
 
-**A Collaborative Clinical Instrument | Built with Google ADK & Gemini**
+> **"A bridge, not a wedge."** — Closing the gender diagnostic gap with Multi-Agent Systems.
 
-LUCIA is an AI-powered scientific instrument designed to bridge the gap between patient narratives and clinical data. It analyzes medical research to surface and mitigate diagnostic bias in women's health.
+**LUCIA (Language Understanding for Clinical Insight & Analysis)** is a dual-agent AI instrument designed to address "diagnostic shadowing" in women's health. It acts as a collaborative layer between patient narratives and clinical diagnosis.
 
-Designed as a **"bridge, not a wedge,"** LUCIA serves two distinct masters:
+---
 
-* **The Clinician (Efficiency & Safety):** Acts as an intelligent "pre-screener," synthesizing complex narratives into structured clinical data (Review of Systems) to reduce cognitive load and burnout.
-* **The Researcher (Discovery & Equity):** Utilizes the "AXIOM Engine" concept to flag systemic bias in literature and collect real-world evidence to fill medical "Data Voids."
+## 🚨 The Problem
+Women face on average a **four-year diagnostic delay** compared to men. This is often rooted in systemic bias where physical symptoms are wrongly attributed to mental health issues ("it's just anxiety").
 
+## 💡 The Solution
+LUCIA uses a **Dual-Stream Architecture** to separate the "listening" from the "auditing":
+* **For the Clinician:** Synthesizes narratives into structured **Review of Systems (ROS)** data.
+* **For the Patient:** Flags potential bias (Ageism, Gender Bias) using the **AXIOM Knowledge Base** and generates neutral advocacy questions.
+
+---
 ## **📚 Table of Contents**
 
 1. [Architecture & Workflow](https://www.google.com/search?q=%231-architecture--workflow-the-dual-stream-engine)
@@ -25,29 +35,24 @@ Designed as a **"bridge, not a wedge,"** LUCIA serves two distinct masters:
 
 LUCIA utilizes a **Multi-Agent Orchestration** built on the Google Agent Development Kit (ADK). The system processes the patient's subjective narrative through four distinct stages to create a structured clinical asset.
 
-### **Why Agents?**
-
-* **Specialization:** Distinct roles (Symptom Mapper vs. Bias Analyzer) ensure rigorous separation between the patient's own thoughts and existing clinical assumptions. 
-* **Statefulness:** A dynamic "Session State" evolves in real-time, updating symptoms and detected biases as the narrative unfolds. 
-* **Verifiable Tool Use:** Agents trigger tools (e.g., `get_bias_implications`) to ground insights in peer-reviewed literature rather than relying solely on LLM training data.
+### Why Agents? (Not just prompts)
+1.  **Specialization:** A single LLM tends to hallucinate compliancy (agreeing with the doctor). We separate the **Scribe** (Agent 1) from the **Auditor** (Agent 2) to create an intentional adversarial check.
+2.  **Statefulness:** The `InMemorySessionService` maintains the evolving context of the patient's story.
+3.  **Verifiable Grounding:** The `bias_analyzer` uses a custom tool (`get_bias_implications`) to check findings against medical definitions, preventing hallucinated accusations.
 
 ### **The 4-Stage Pipeline**
 
 ![Workflow](./images/workflow.png "LUCIA workflow")
 
-1. **Ingest & Map (The Digital Scribe)** 
-   * **Agent:** `symptom_mapper` 
-   * **Action:** Ingests user narrative and translates emotional history into a structured Review of Systems (ROS). It updates the `symptomMapping` state (e.g., "brain fog" $\\to$ Neurological Cluster). 
-2. **Audit (Clinical Decision Support)** 
-   * **Agent:** `bias_analyzer` 
-   * **Tool:** AXIOM Knowledge Base (via `get_bias_implications`) 
-   * **Action:** Audits the narrative for cognitive traps like premature closure. It asynchronously updates `biasAwareness`, framing potential biases as diagnostic pivot points. 
-3. **Advocacy (The Patient Prep Engine)** 
-   * **Agent:** `advocacy_generator` 
-   * **Action:** Transforms anxiety into a structured agenda. Generates `structuredAdvocacy` questions (e.g., "Given symptoms X and Y, should we check thyroid function?") to focus the conversation. 
-4. **Structure (The Clinical Handoff)** 
-   * **Agent:** `report_formatter` 
-   * **Action:** Compiles the final output into a professional Consultation Brief (Subjective $\\to$ Assessment $\\to$ Plan).
+### The Pipeline
+1.  **Parallel Layer:**
+    * `symptom_mapper`: Extracts *only* patient-reported sensations (ignoring doctor labels).
+    * `bias_analyzer`: Audits the interaction for specific bias markers using the AXIOM tool.
+2.  **Sequential Layer:**
+    * `advocacy_generator`: Converts findings into a Q&A script.
+    * `report_formatter`: Compiles the final "Patient Advocacy & Consultation Aid."
+
+---
 
 ## **2\. Project Structure**
 
@@ -97,13 +102,6 @@ pip install -r requirements.txt
 ### **Step 3: Configuration**
 
 Create a .env file in the root directory. **Do not commit this file.**
-```bash
-cat <<EOF > .env
-GOOGLE_API_KEY="your_actual_api_key_here"
-GOOGLE_GENAI_USE_VERTEXAI=0
-EOF
-```
-
 ```bash
 # .env file
 GOOGLE_API_KEY="your_actual_api_key_here"
@@ -167,13 +165,7 @@ LUCIA generates the following document for the patient:
 
 ## **6\. Cloud Deployment (Vertex AI Agent Engine)**
 
-The LUCIA agent has been deployed to Google Cloud's Vertex AI Agent Engine as a secure, serverless API.
-
-* **Platform:** Vertex AI Agent Engine 
-* **Region:** us-central1
-
-### **Deploy Command**
-
+LUCIA is designed to run on Google Cloud's Vertex AI Agent Engine.
 To deploy the contents of the `lucia_deploy` directory:
 ```bash
 adk deploy agent_engine --project=$PROJECT_ID --region=$deployed_region lucia_deploy --agent_engine_config_file=lucia_deploy/.agent_engine_config.json
@@ -184,5 +176,9 @@ This capstone demonstrates LUCIA's immediate utility, but its long-term value li
 
 * **For Researchers:** Future iterations will allow women to donate anonymized data to AXIOM, creating the "Big Data" needed to update guidelines.
 * **For Clinicians:** Provides a "longitudinal view" of a patient's journey, revealing cyclical patterns invisible in snapshot appointments.
+
+This project is licensed under the Apache 2.0 License.
+
+*Submitted for the 5-Day AI Agents Intensive Course with Google Capstone Project*
 
 ![Bridge](./images/bridge.png "LUCIA bridge") 
