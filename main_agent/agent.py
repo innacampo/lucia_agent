@@ -85,6 +85,9 @@ def get_bias_implications(bias_type: str) -> str:
     return axiom_knowledge_base.get(bias_type, "No specific information found for this bias type in the AXIOM library.")
 
 # --- Worker Agent 1: Symptom Analysis ---
+# ARCHITECTURAL NOTE: 
+# This instruction includes "Negative Constraints" (e.g., "EXCLUDE doctor's advice") 
+# to mathematically prevent the model from reinforcing existing bias.
 symptom_mapper_instruction = """Act as a CUMULATIVE Clinical NLP specialist.
 You will receive a conversation history containing patient narratives.
 Your task is to maintain a COMPREHENSIVE LIST of strictly PATIENT-REPORTED symptoms.
