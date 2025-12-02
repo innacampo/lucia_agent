@@ -13,12 +13,12 @@
 ---
 
 ## The Problem
-Women face on average a **four-year diagnostic delay** compared to men. This is often rooted in systemic bias where physical symptoms are wrongly attributed to mental health issues ("it's just anxiety").
+Women face on average a **four-year diagnostic delay** compared to men across hundreds of conditions, according to a study of almost 7 million patients (Westergaard, D., Moseley, P., Sørup, F.K.H. et al. Population-wide analysis of differences in disease progression patterns in men and women. Nature Communications 10, 666 (2019)). This is often rooted in "diagnostic shadowing," where physical symptoms are wrongly attributed to mental health issues. This is rarely malice, rather, it is a byproduct of cognitive fatigue and a medical literature gap treating male physiology as the default.
 
 ## The Solution
 LUCIA uses a **Dual-Stream Architecture** to separate the "listening" from the "auditing":
 * **For the Clinician:** Synthesizes narratives into structured **Review of Systems (ROS)** data.
-* **For the Patient:** Flags potential bias (Ageism, Gender Bias) using the **AXIOM Knowledge Base** and generates neutral advocacy questions.
+* **For the Patient:** Flags potential bias using the **AXIOM Knowledge Base** and generates neutral advocacy questions.
 
 ---
 ## **1\. Architecture & Workflow ("The Dual-Stream Engine")**
