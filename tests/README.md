@@ -24,7 +24,7 @@ Execute the test module from the **project root** directory:
 python -m tests.test_agent
 ```
 
-## **Expected Output**
+## Expected Output
 
 The script will stream the agent's thought process to the console. You should look for:
 
@@ -32,7 +32,7 @@ The script will stream the agent's thought process to the console. You should lo
 2. **Intermediate Steps:** Logs showing the tool calls to `get_bias_implications`.  
 3. **Final Report:** A structured text block titled **"Patient Advocacy & Consultation Aid"**.
 
-## **Troubleshooting**
+## Troubleshooting
 
 If the test fails immediately, ensure your environment variables are set:
 
